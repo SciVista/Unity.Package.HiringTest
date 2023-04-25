@@ -2,14 +2,14 @@
 Test used for potential hiring candidates
 
 ## Dependencies:
--Unity 2019.4.16f1
--Universal Render Pipeline
--TextMesh Pro
+-Unity 2019.4.16f1 <br>
+-Universal Render Pipeline <br>
+-TextMesh Pro <br>
 
 ## Description:
-### You will utilize this Unity package by importing it into the correct version of Unity. 
+### You will utilize this Unity package by first cloning and then Importing it into the correct version of Unity. 
 ### Once you have Imported the package into Unity, look inside the package, in the Editor Folder, and apply all avaialable settings.
-
+### Once you are inside Unity and have applied all settings, find the Unity Scene labeled: Follow Path. Open this scene then follow the below notes:
 
 ## Problems to Solve:
 ### The car’s materials are not applied correctly. Fix this first by updating the Graphics Settings.
