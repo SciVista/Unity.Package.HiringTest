@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [ExecuteInEditMode] 
 public class Problems : MonoBehaviour
 {
-    
+     public ThisIsAHeadache headacheScript;
     void Awake()
     {
         InterestingController.sendSignal += UpdateNote;
@@ -14,6 +15,10 @@ public class Problems : MonoBehaviour
     void Update()
     {
         UpdateNote();
+
+
+        if (!headacheScript.isActiveAndEnabled)
+            Debug.LogError("Turning off the script is not fixing this bug!");
     }
 
     private void UpdateNote()

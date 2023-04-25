@@ -24,8 +24,9 @@ namespace PathCreation.Examples
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
                 pathCreator.pathUpdated += OnPathChanged;
             }
+            SpeedSetter.ActivateSpeedSetter();
             ExternalSpeedAdjustment.speedAdjustment += (value) => { speedAdjustment = value; };
-            speed = speed + baseSpeed;
+            speed = SpeedSetter.speedActual + baseSpeed;
             StartCoroutine(SpeedAdjust());
             sendStartPosition = true;
         }
@@ -38,12 +39,6 @@ namespace PathCreation.Examples
                 speedText.text = "Car Speed: " + speed.ToString();
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                if (sendStartPosition)
-                {
-                    startingPos.Invoke(transform.position);
-                    sendStartPosition = false; //so it only happens once
-                }
-                    
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
             }
            
@@ -52,7 +47,7 @@ namespace PathCreation.Examples
         private IEnumerator SpeedAdjust()
         {
             yield return new WaitForSeconds(0.3f);
-            speed = baseSpeed + speedAdjustment;
+            speed = baseSpeed + SpeedSetter.speedActual + speedAdjustment;
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path

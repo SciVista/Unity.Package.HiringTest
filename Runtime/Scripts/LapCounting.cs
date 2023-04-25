@@ -11,16 +11,13 @@ public class LapCounting : MonoBehaviour
     private Vector3 startPos;
     public TextMeshPro lapText;
     private int lapCount;
-    bool allowCoolDown;
-    bool firstLap;
+
     // Start is called before the first frame update
     void Start()
     {
         PathFollower.startingPos += (value) => { startPos = value; };
 
         startPos = new Vector3(-4.3f, -.6f, .5f);
-        allowCoolDown = true;
-        firstLap = true;
         lapText.text = "Lap Count: 0";
     }
 
