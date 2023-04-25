@@ -331,9 +331,10 @@ namespace PathCreation {
             public readonly int nextIndex;
             public readonly float percentBetweenIndices;
 
+            //Controls index count for points and which to move to next
             public TimeOnPathData (int prev, int next, float percentBetweenIndices) {
                 this.previousIndex = prev;
-                this.nextIndex = next;
+                this.nextIndex = next + Random.Range(0,8);
                 this.percentBetweenIndices = percentBetweenIndices;
             }
         }

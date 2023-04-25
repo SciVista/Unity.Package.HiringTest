@@ -1,4 +1,7 @@
 ﻿using UnityEngine;
+using TMPro;
+using System.Collections;
+using System;
 
 namespace PathCreation.Examples
 {
@@ -8,25 +11,48 @@ namespace PathCreation.Examples
     {
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed = 5;
+        private float speed = 0;
+        public float baseSpeed = 5;
         float distanceTravelled;
-
+        float speedAdjustment;
+        public TextMeshPro speedText;
+        public static Action<Vector3> startingPos;
+        private bool sendStartPosition;
         void Start() {
             if (pathCreator != null)
             {
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
                 pathCreator.pathUpdated += OnPathChanged;
             }
+            ExternalSpeedAdjustment.speedAdjustment += (value) => { speedAdjustment = value; };
+            speed = speed + baseSpeed;
+            StartCoroutine(SpeedAdjust());
+            sendStartPosition = true;
         }
 
         void Update()
         {
+            StartCoroutine(SpeedAdjust());
             if (pathCreator != null)
-            {
+            {                        
+                speedText.text = "Car Speed: " + speed.ToString();
                 distanceTravelled += speed * Time.deltaTime;
                 transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+                if (sendStartPosition)
+                {
+                    startingPos.Invoke(transform.position);
+                    sendStartPosition = false; //so it only happens once
+                }
+                    
                 transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
             }
+           
+        }
+
+        private IEnumerator SpeedAdjust()
+        {
+            yield return new WaitForSeconds(0.3f);
+            speed = baseSpeed + speedAdjustment;
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
