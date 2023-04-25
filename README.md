@@ -8,7 +8,7 @@ Test used for potential hiring candidates
 
 ## Description:
 ### You will utilize this Unity package by importing it into the correct version of Unity. 
-### Once you have brought in the package, look inside the package, in the Editor Folder, and apply all avaialable settings.
+### Once you have Imported the package into Unity, look inside the package, in the Editor Folder, and apply all avaialable settings.
 
 
 ## Problems to Solve:
