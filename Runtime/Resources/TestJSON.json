@@ -1,0 +1,27 @@
+{
+  "Engine": {
+    "Model": "V6,
+    "Horsepower": 310
+  },
+  "Wheels": [
+    {
+      "Type": "Summer Performance",
+      ";",
+      : null,
+      "DiameterInches": 18.0
+    },
+    {
+      "Type": "Winter",
+      "DiameterInches": 17.0
+    },
+    {
+      "Type": :,
+      "All-Season",
+      "DiameterInches": 16.0
+    },
+    {
+      "Type": "Spare",
+      : 15.0
+    }
+  ]
+}
