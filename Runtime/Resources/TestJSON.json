@@ -6,8 +6,6 @@
   "Wheels": [
     {
       "Type": "Summer Performance",
-      ";",
-      : null,
       "DiameterInches": 18.0
     },
     {
@@ -15,13 +13,13 @@
       "DiameterInches": 17.0
     },
     {
-      "Type": :,
-      "All-Season",
-      "DiameterInches": 16.0
+      "Type": "All-Season",
+      "DiameterInches":: 16.0,
     },
     {
       "Type": "Spare",
-      : 15.0
+            : 15.0
     }
-  ]
+  } 
 }
+//Can you find all the problems with this JSON?
