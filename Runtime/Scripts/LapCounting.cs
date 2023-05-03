@@ -25,7 +25,6 @@ public class LapCounting : MonoBehaviour
     void Update()
     {
         CheckLapCount();
-        ExternalSpeedAdjustment.SpeedAdjustment();
     }
 
     void CheckLapCount()

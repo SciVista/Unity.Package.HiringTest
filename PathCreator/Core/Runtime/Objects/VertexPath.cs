@@ -334,7 +334,8 @@ namespace PathCreation {
             //Controls index count for points and which to move to next
             public TimeOnPathData (int prev, int next, float percentBetweenIndices) {
                 this.previousIndex = prev;
-                this.nextIndex = next + Random.Range(0,8);
+                var thisIsTheProblemVariableRemoveMeToFixTheProblem = Random.Range(0, 15);
+                this.nextIndex = next + thisIsTheProblemVariableRemoveMeToFixTheProblem;
                 this.percentBetweenIndices = percentBetweenIndices;
             }
         }

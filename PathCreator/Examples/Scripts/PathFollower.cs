@@ -11,10 +11,9 @@ namespace PathCreation.Examples
     {
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        private float speed = 0;
-        public float baseSpeed = 5;
+        public float speed = 10;
+ 
         float distanceTravelled;
-        float speedAdjustment;
         public TextMeshPro speedText;
         public static Action<Vector3> startingPos;
         private bool sendStartPosition;
@@ -24,16 +23,13 @@ namespace PathCreation.Examples
                 // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
                 pathCreator.pathUpdated += OnPathChanged;
             }
-            SpeedSetter.ActivateSpeedSetter();
-            ExternalSpeedAdjustment.speedAdjustment += (value) => { speedAdjustment = value; };
-            speed = SpeedSetter.speedActual + baseSpeed;
-            StartCoroutine(SpeedAdjust());
+ 
             sendStartPosition = true;
         }
 
         void Update()
         {
-            StartCoroutine(SpeedAdjust());
+            
             if (pathCreator != null)
             {                        
                 speedText.text = "Car Speed: " + speed.ToString();
@@ -44,12 +40,7 @@ namespace PathCreation.Examples
            
         }
 
-        private IEnumerator SpeedAdjust()
-        {
-            yield return new WaitForSeconds(0.3f);
-            speed = baseSpeed + SpeedSetter.speedActual + speedAdjustment;
-        }
-
+        
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
         // is as close as possible to its position on the old path
         void OnPathChanged() {
