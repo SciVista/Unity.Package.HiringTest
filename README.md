@@ -14,6 +14,7 @@ Test used for potential SciVista candidates
 ####    5. Stack Exchange
 ####    6. Google
 ####    7. If you get stuck on a Unity Editor related issue (not a code related issue) you may ask the SV team for assistance AFTER you have tried to solve the issue by using the above tools.
+####    8. This Repo! There might be some hints if you look at git and how it validates scripts.
 
 ## Description:
 #### To complete this you must screenshare your work AT ALL TIMES during the test. If you have to search the Internet for part of the solution, you must have your screen share show us your process. There will be no exceptions, and if you are working and not sharing your screen we will ask you to stop and share before you proceed further.
